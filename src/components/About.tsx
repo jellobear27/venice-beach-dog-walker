@@ -13,16 +13,16 @@ export default function About() {
             </h2>
             <div className="mt-3 mx-auto max-w-3xl bg-[#2DD4BF]/10 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-[#2DD4BF]/20">
               <p className="text-lg text-gray-600 mb-6">
-                At Venice Beach Dog Walking, we&apos;re passionate about providing exceptional care for your furry friends. Our team of experienced and certified dog walkers is dedicated to ensuring your pet&apos;s safety, happiness, and well-being during every walk.
+                Hi, I'm Janell—the Venice Beach Dog Walker. It's just me, your dog, and a whole lot of good energy. I've been walking and caring for dogs since 2020, and I truly love what I do. Dogs seem to love me right back, and that connection is everything.
               </p>
               <p className="text-lg text-gray-600 mb-6">
-                We understand that your dog is more than just a pet - they&apos;re a beloved member of your family. That&apos;s why we go above and beyond to create a personalized experience for each dog in our care.
+                This isn't just a gig to me—it's a lifestyle. I've worked in dog bathing shops, cared for puppies, administered meds, and followed daily routines to make sure every dog feels safe, loved, and seen. I treat them like family because that's how I see them.
               </p>
               <p className="text-lg text-gray-600 mb-6">
-                Whether it&apos;s a leisurely stroll along the beach or an energetic run through the park, we tailor each walk to your dog&apos;s unique needs and preferences. Our commitment to excellence has made us the trusted choice for dog owners throughout Venice Beach.
+                From mellow boardwalk strolls to beach runs or scenic hikes, I tailor every outing to your dog's personality and needs. Whether your pup is high-energy or just wants to chill and sniff the breeze, I've got them.
               </p>
               <p className="text-lg text-gray-600">
-                Join our growing family of satisfied clients and give your dog the exercise and attention they deserve. We&apos;re here to make every walk an adventure your dog will love!
+                If you're looking for someone dependable, intuitive, and genuinely in love with dogs—I'm your girl. Let's get those tails wagging and make every walk an adventure.
               </p>
             </div>
           </div>

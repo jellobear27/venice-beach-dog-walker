@@ -11,7 +11,7 @@ const ubuntu = Ubuntu({
 
 export const metadata: Metadata = {
   title: "Venice Beach Dog Walker | Professional Dog Walking Services",
-  description: "Professional dog walking services in Venice Beach. Personalized care for your furry friend with experienced and reliable walkers.",
+  description: "Real love, real walks, real connection. One-on-one care with Janell—the Venice Beach local who treats your dog like family. Beach days, park play, hikes, meds, cuddles—you name it, your pup's got my full attention.",
 };
 
 export default function RootLayout({

@@ -1,4 +1,11 @@
-export const generateEmail = (formData: any) => {
+interface EmailTemplate {
+  name: string;
+  email: string;
+  phone: string;
+  preferredTime: string;
+}
+
+export const generateEmail = (formData: EmailTemplate) => {
   return `
     <!DOCTYPE html>
     <html>

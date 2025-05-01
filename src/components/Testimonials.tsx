@@ -1,6 +1,7 @@
 'use client';
 
 import { StarIcon } from '@heroicons/react/20/solid';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -64,13 +65,15 @@ export default function Testimonials() {
                 <span className="ml-2 text-sm text-gray-600">{testimonial.rating}.0</span>
               </div>
               <blockquote className="text-lg text-gray-900 mb-6">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <div className="flex items-center">
-                <img
+                <Image
                   className="h-12 w-12 rounded-full ring-2 ring-sunset-orange"
                   src={testimonial.author.imageUrl}
                   alt={testimonial.author.name}
+                  width={48}
+                  height={48}
                 />
                 <div className="ml-4">
                   <div className="text-sm font-medium text-gray-900">

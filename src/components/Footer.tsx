@@ -1,4 +1,4 @@
-import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+import { MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 export default function Footer() {
   return (

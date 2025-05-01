@@ -39,7 +39,7 @@ export default function Services() {
             Services & Rates
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Flexible care options tailored to your dog's needs. Each service includes updates, photos, and personalized attention.
+            Flexible care options tailored to your dog&apos;s needs. Each service includes updates, photos, and personalized attention.
           </p>
         </div>
 

@@ -1,9 +1,20 @@
-import { NextResponse } from 'next/server';
 import { SendEmailCommand } from "@aws-sdk/client-ses";
 import { sesClient } from "../sesClient";
 import { generateEmail } from "../emailTemplate";
 
-const createSendEmailCommand = (formData: any) => {
+interface EmailRequest {
+  name: string;
+  email: string;
+  phone: string;
+  preferredTime: string;
+}
+
+interface EmailResponse {
+  success: boolean;
+  message: string;
+}
+
+const createSendEmailCommand = (formData: EmailRequest) => {
   return new SendEmailCommand({
     Destination: {
       ToAddresses: [process.env.FORM_RESPONSE_RECIPIENT_EMAIL!],
@@ -41,7 +52,7 @@ Venice Beach Dog Walker
   });
 };
 
-export async function POST(request: Request) {
+export async function POST(request: Request): Promise<Response> {
   // Add CORS headers
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -51,11 +62,11 @@ export async function POST(request: Request) {
 
   // Handle OPTIONS request for CORS preflight
   if (request.method === 'OPTIONS') {
-    return new NextResponse(null, { headers });
+    return new Response(null, { headers });
   }
 
   try {
-    const formData = await request.json();
+    const formData: EmailRequest = await request.json();
     console.log('Received form data:', formData);
     console.log('Environment variables:', {
       recipient: process.env.FORM_RESPONSE_RECIPIENT_EMAIL,
@@ -69,26 +80,15 @@ export async function POST(request: Request) {
     const result = await sesClient.send(sendEmailCommand);
     console.log('Email sent successfully:', result);
     
-    return NextResponse.json({ success: true }, { headers });
+    return new Response(
+      JSON.stringify({ success: true, message: 'Email sent successfully' } as EmailResponse),
+      { headers }
+    );
   } catch (error) {
-    console.error('Detailed error sending email:', error);
-    
-    // Extract the error message from AWS SES error
-    let errorMessage = 'Failed to send email';
-    if (error instanceof Error) {
-      errorMessage = error.message;
-      // If it's an AWS error, try to get more details
-      if ('$metadata' in error) {
-        const awsError = error as any;
-        errorMessage = awsError.message || `AWS Error: ${awsError.$metadata?.httpStatusCode || 'Unknown'}`;
-      }
-    }
-
-    return NextResponse.json(
-      { 
-        error: errorMessage,
-        details: error instanceof Error ? error.stack : 'Unknown error'
-      },
+    console.error('Error sending email:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Failed to send email';
+    return new Response(
+      JSON.stringify({ success: false, message: errorMessage } as EmailResponse),
       { status: 500, headers }
     );
   }

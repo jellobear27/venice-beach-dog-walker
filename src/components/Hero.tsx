@@ -28,7 +28,7 @@ export default function Hero() {
           </h1>
           <div className="mt-3 sm:mt-5 mx-auto max-w-xl bg-black/30 backdrop-blur-sm rounded-xl p-4 shadow-xl">
             <p className="text-base text-white font-semibold sm:text-lg md:text-xl">
-            Personalized care for your furry friend. Enjoy dedicated, one-on-one attention from a skilled Venice Beach dog walker who prioritizes your dog's needs
+              Personalized care for your furry friend. Enjoy dedicated, one-on-one attention from a skilled Venice Beach dog walker who prioritizes your dog&apos;s needs
             </p>
           </div>
           <div className="mt-5 sm:mt-8 flex justify-center">

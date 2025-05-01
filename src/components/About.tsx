@@ -12,15 +12,17 @@ export default function About() {
               About <span className="text-[#2DD4BF]">Venice Beach Dog Walker</span>
             </h2>
             <div className="mt-3 mx-auto max-w-3xl bg-[#2DD4BF]/10 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-[#2DD4BF]/20">
-              <p className="text-lg text-[#FF6B35] font-medium">
-
-Hello There! I'm Janell, I offer you the chance to choose me to be your furry family member's new adventure buddy! With over 5+ years of dedicated dog care experience across Las Vegas and New Jersey, I've built a reputation of trust and reliability that I'm excited to bring to Venice Beach.
-
-As a newcomer to this beautiful coastal community, I approach each walk with fresh eyes and enthusiasm. I'm eagerly exploring all the neighborhood paths, beach routes, and dog-friendly spots that will keep your pup's tail wagging. Each outing becomes a new adventure for both of us as we discover Venice Beach together!
-
-What sets me apart is my commitment to building genuine bonds with each dog in my care. I don't just hold the leash—I become a trusted companion who takes the time to understand your dog's unique signals, quirks, and joys. My clients in Las Vegas and New Jersey have consistently trusted me with their beloved pets, and I'm ready to earn that same trust from the Venice Beach community.
-
-When you're away, rest assured your furry family member isn't just being walked—they're making a new best friend who treats them like family and provides the exceptional attention and care they truly deserve.
+              <p className="text-lg text-gray-600 mb-6">
+                At Venice Beach Dog Walking, we&apos;re passionate about providing exceptional care for your furry friends. Our team of experienced and certified dog walkers is dedicated to ensuring your pet&apos;s safety, happiness, and well-being during every walk.
+              </p>
+              <p className="text-lg text-gray-600 mb-6">
+                We understand that your dog is more than just a pet - they&apos;re a beloved member of your family. That&apos;s why we go above and beyond to create a personalized experience for each dog in our care.
+              </p>
+              <p className="text-lg text-gray-600 mb-6">
+                Whether it&apos;s a leisurely stroll along the beach or an energetic run through the park, we tailor each walk to your dog&apos;s unique needs and preferences. Our commitment to excellence has made us the trusted choice for dog owners throughout Venice Beach.
+              </p>
+              <p className="text-lg text-gray-600">
+                Join our growing family of satisfied clients and give your dog the exercise and attention they deserve. We&apos;re here to make every walk an adventure your dog will love!
               </p>
             </div>
           </div>

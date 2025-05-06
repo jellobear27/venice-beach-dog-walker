@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Image from 'next/image';
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const MAX_DIMENSION = 2000; // Maximum width/height in pixels
 const MIN_DIMENSION = 200; // Minimum width/height in pixels
@@ -153,72 +155,58 @@ export default function ContestEntryForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {/* Dog's Name */}
-      <div>
-        <label htmlFor="dogName" className="block text-sm font-medium text-gray-700">
-          Dog's Name
-        </label>
-        <input
+      <div className="space-y-2">
+        <Label htmlFor="dogName">Dog's Name</Label>
+        <Input
           type="text"
           id="dogName"
           {...register('dogName')}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#FF6B35] focus:ring-[#FF6B35] sm:text-sm"
         />
         {errors.dogName && (
-          <p className="mt-1 text-sm text-red-600">{errors.dogName.message}</p>
+          <p className="text-sm text-red-600">{errors.dogName.message}</p>
         )}
       </div>
+
       {/* Breed */}
-      <div>
-        <label htmlFor="breed" className="block text-sm font-medium text-gray-700">
-          Breed
-        </label>
-        <input
+      <div className="space-y-2">
+        <Label htmlFor="breed">Breed</Label>
+        <Input
           type="text"
           id="breed"
           {...register('breed')}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#FF6B35] focus:ring-[#FF6B35] sm:text-sm"
         />
         {errors.breed && (
-          <p className="mt-1 text-sm text-red-600">{errors.breed.message}</p>
+          <p className="text-sm text-red-600">{errors.breed.message}</p>
         )}
       </div>
 
       {/* Fun Fact */}
-      <div>
-        <label htmlFor="funFact" className="block text-sm font-medium text-gray-700">
-          Fun Fact or Personality Trait
-        </label>
+      <div className="space-y-2">
+        <Label htmlFor="funFact">Fun Fact or Personality Trait</Label>
         <textarea
           id="funFact"
           {...register('funFact')}
           rows={3}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#FF6B35] focus:ring-[#FF6B35] sm:text-sm"
+          className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
         />
         {errors.funFact && (
-          <p className="mt-1 text-sm text-red-600">{errors.funFact.message}</p>
+          <p className="text-sm text-red-600">{errors.funFact.message}</p>
         )}
       </div>
 
       {/* Photo Upload */}
-      <div>
-        <label htmlFor="photo" className="block text-sm font-medium text-gray-700">
-          Dog's Photo
-        </label>
-        <div className="mt-1">
-          <input
+      <div className="space-y-2">
+        <Label htmlFor="photo">Dog's Photo</Label>
+        <div>
+          <Input
             type="file"
             id="photo"
             accept="image/jpeg,image/png,image/gif"
             onChange={handlePhotoChange}
-            className="mt-1 block w-full text-sm text-gray-500
-              file:mr-4 file:py-2 file:px-4
-              file:rounded-md file:border-0
-              file:text-sm file:font-semibold
-              file:bg-[#FF6B35] file:text-white
-              hover:file:bg-[#FF6B35]/90"
+            className="cursor-pointer file:cursor-pointer"
           />
           {isValidating && (
-            <p className="mt-1 text-sm text-gray-500">Validating image...</p>
+            <p className="mt-1 text-sm text-muted-foreground">Validating image...</p>
           )}
           {validationError && (
             <p className="mt-1 text-sm text-red-600">{validationError}</p>
@@ -239,34 +227,28 @@ export default function ContestEntryForm() {
       </div>
 
       {/* Owner's Name */}
-      <div>
-        <label htmlFor="ownerName" className="block text-sm font-medium text-gray-700">
-          Your Name
-        </label>
-        <input
+      <div className="space-y-2">
+        <Label htmlFor="ownerName">Your Name</Label>
+        <Input
           type="text"
           id="ownerName"
           {...register('ownerName')}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#FF6B35] focus:ring-[#FF6B35] sm:text-sm"
         />
         {errors.ownerName && (
-          <p className="mt-1 text-sm text-red-600">{errors.ownerName.message}</p>
+          <p className="text-sm text-red-600">{errors.ownerName.message}</p>
         )}
       </div>
 
       {/* Owner's Email */}
-      <div>
-        <label htmlFor="ownerEmail" className="block text-sm font-medium text-gray-700">
-          Your Email
-        </label>
-        <input
+      <div className="space-y-2">
+        <Label htmlFor="ownerEmail">Your Email</Label>
+        <Input
           type="email"
           id="ownerEmail"
           {...register('ownerEmail')}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#FF6B35] focus:ring-[#FF6B35] sm:text-sm"
         />
         {errors.ownerEmail && (
-          <p className="mt-1 text-sm text-red-600">{errors.ownerEmail.message}</p>
+          <p className="text-sm text-red-600">{errors.ownerEmail.message}</p>
         )}
       </div>
 

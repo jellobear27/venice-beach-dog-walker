@@ -3,6 +3,8 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const schema = yup.object().shape({
   name: yup.string().required('Name is required'),
@@ -73,67 +75,50 @@ export default function Booking() {
               before:bg-gradient-to-r before:from-[#FF6B35] before:via-[#FF4D6D] before:to-[#845EC2] 
               before:animate-gradient-flow before:opacity-10"
           >
-            <div>
-              <label htmlFor="name" className="block text-sm font-bold text-gray-800">
-                Name
-              </label>
-              <input
+            <div className="space-y-2">
+              <Label htmlFor="name">Name</Label>
+              <Input
                 type="text"
                 id="name"
                 {...register('name')}
-                className="mt-1 block w-full rounded-md border-0 bg-white/50 shadow-sm ring-1 ring-inset ring-white/20 
-                  focus:ring-2 focus:ring-[#FF6B35] placeholder:text-gray-600 text-gray-800 backdrop-blur-sm
-                  transition-all duration-300"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-600 font-semibold">{errors.name.message}</p>
+                <p className="text-sm text-red-600">{errors.name.message}</p>
               )}
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-bold text-gray-800">
-                Email
-              </label>
-              <input
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
                 type="email"
                 id="email"
                 {...register('email')}
-                className="mt-1 block w-full rounded-md border-0 bg-white/50 shadow-sm ring-1 ring-inset ring-white/20 
-                  focus:ring-2 focus:ring-[#FF6B35] placeholder:text-gray-600 text-gray-800 backdrop-blur-sm
-                  transition-all duration-300"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-600 font-semibold">{errors.email.message}</p>
+                <p className="text-sm text-red-600">{errors.email.message}</p>
               )}
             </div>
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-bold text-gray-800">
-                Phone
-              </label>
-              <input
+            <div className="space-y-2">
+              <Label htmlFor="phone">Phone</Label>
+              <Input
                 type="tel"
                 id="phone"
                 {...register('phone')}
-                className="mt-1 block w-full rounded-md border-0 bg-white/50 shadow-sm ring-1 ring-inset ring-white/20 
-                  focus:ring-2 focus:ring-[#FF6B35] placeholder:text-gray-600 text-gray-800 backdrop-blur-sm
-                  transition-all duration-300"
               />
               {errors.phone && (
-                <p className="mt-1 text-sm text-red-600 font-semibold">{errors.phone.message}</p>
+                <p className="text-sm text-red-600">{errors.phone.message}</p>
               )}
             </div>
 
-            <div>
-              <label htmlFor="preferredTime" className="block text-sm font-bold text-gray-800">
-                Preferred Time to Call
-              </label>
+            <div className="space-y-2">
+              <Label htmlFor="preferredTime">Preferred Time to Call</Label>
               <select
                 id="preferredTime"
                 {...register('preferredTime')}
-                className="mt-1 block w-full rounded-md border-0 bg-white/50 shadow-sm ring-1 ring-inset ring-white/20 
-                  focus:ring-2 focus:ring-[#FF6B35] placeholder:text-gray-600 text-gray-800 backdrop-blur-sm
-                  transition-all duration-300"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background 
+                  placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring 
+                  focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <option value="">Select a time</option>
                 <option value="morning">Morning (9am - 12pm)</option>
@@ -141,7 +126,7 @@ export default function Booking() {
                 <option value="evening">Evening (5pm - 8pm)</option>
               </select>
               {errors.preferredTime && (
-                <p className="mt-1 text-sm text-red-600 font-semibold">{errors.preferredTime.message}</p>
+                <p className="text-sm text-red-600">{errors.preferredTime.message}</p>
               )}
             </div>
 
@@ -149,10 +134,9 @@ export default function Booking() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-base 
-                  font-bold text-white bg-gradient-to-r from-[#FF6B35] to-[#FF4D6D] hover:from-[#2DD4BF] hover:to-[#0EA5E9] 
-                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6B35] disabled:opacity-50 
-                  transition-all duration-300"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium 
+                  text-white bg-[#FF6B35] hover:bg-[#FF4D6D] focus:outline-none focus:ring-2 focus:ring-offset-2 
+                  focus:ring-[#FF6B35] disabled:opacity-50"
               >
                 {isSubmitting ? 'Submitting...' : 'Book Consultation'}
               </button>

@@ -29,7 +29,7 @@ export default function Hero() {
           <div className="mt-3 sm:mt-5 mx-auto max-w-xl bg-black/10 backdrop-blur-sm rounded-xl p-4 shadow-xl">
             <p className="text-base text-white font-bold sm:text-lg md:text-xl">
               Real love, real walks, real connection.
-              One-on-one care with Janell—the Venice Beach local who treats your dog like family. Beach days, park play, hikes, meds, cuddles—you name it, your pup's got my full attention.
+              One-on-one care with Janell—the Venice Beach local who treats your dog like family. Beach days, park play, hikes, cuddles—you name it, your pup&apos;s got my full attention.
             </p>
           </div>
           <div className="mt-5 sm:mt-8 flex justify-center">
@@ -42,6 +42,9 @@ export default function Hero() {
               </a>
             </div>
           </div>
+          <p className="mt-4 text-lg text-gray-600">
+            Let&apos;s make your dog&apos;s day special with our professional walking services.
+          </p>
         </div>
       </div>
     </div>

@@ -9,6 +9,11 @@ import Image from 'next/image';
 const MAX_DIMENSION = 2000; // Maximum width/height in pixels
 const MIN_DIMENSION = 200; // Minimum width/height in pixels
 
+// Define a type for the file
+type FileWithPreview = File & {
+  preview?: string;
+};
+
 const schema = yup.object().shape({
   dogName: yup.string().required('Dog\'s name is required'),
   breed: yup.string().required('Breed is required'),
@@ -16,7 +21,7 @@ const schema = yup.object().shape({
   ownerName: yup.string().required('Owner\'s name is required'),
   ownerEmail: yup.string().email('Invalid email').required('Email is required'),
   photo: yup
-    .mixed()
+    .mixed<FileWithPreview>()
     .required('Photo is required')
     .test('fileSize', 'File size is too large (max 10MB)', (value) => {
       if (!value) return true;
@@ -28,8 +33,8 @@ const schema = yup.object().shape({
     })
     .test('dimensions', 'Image dimensions must be between 200x200 and 2000x2000 pixels', async (value) => {
       if (!value) return true;
-      return new Promise((resolve) => {
-        const img = new Image();
+      return new Promise<boolean>((resolve) => {
+        const img = new window.Image();
         img.onload = () => {
           const valid = 
             img.width >= MIN_DIMENSION && 
@@ -77,7 +82,7 @@ export default function ContestEntryForm() {
 
       // Check dimensions
       const dimensions = await new Promise<{ width: number; height: number }>((resolve, reject) => {
-        const img = new Image();
+        const img = new window.Image();
         img.onload = () => resolve({ width: img.width, height: img.height });
         img.onerror = () => reject(new Error('Failed to load image'));
         img.src = URL.createObjectURL(file);
@@ -106,7 +111,7 @@ export default function ContestEntryForm() {
     if (file) {
       const isValid = await validateImage(file);
       if (isValid) {
-        setValue('photo', file);
+        setValue('photo', file as FileWithPreview);
         const url = URL.createObjectURL(file);
         setPreviewUrl(url);
       } else {
@@ -124,10 +129,10 @@ export default function ContestEntryForm() {
       formData.append('ownerName', data.ownerName);
       formData.append('ownerEmail', data.ownerEmail);
       if (data.photo) {
-        formData.append('photo', data.photo);
+        formData.append('photo', data.photo as File);
       }
 
-      const response = await fetch('/api/contest', {
+      const response = await fetch('/api/upload-contest-image', {
         method: 'POST',
         body: formData,
       });
@@ -162,7 +167,6 @@ export default function ContestEntryForm() {
           <p className="mt-1 text-sm text-red-600">{errors.dogName.message}</p>
         )}
       </div>
-
       {/* Breed */}
       <div>
         <label htmlFor="breed" className="block text-sm font-medium text-gray-700">

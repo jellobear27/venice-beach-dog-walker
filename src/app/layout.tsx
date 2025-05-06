@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const ubuntu = Ubuntu({
   weight: ['300', '400', '500', '700'],
@@ -22,7 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ubuntu.className}>
-        <main className="min-h-screen bg-[#FFF8E7]">
+        <Navbar />
+        <main className="min-h-screen bg-[#FFF8E7] pt-16">
           {children}
         </main>
       </body>

@@ -11,9 +11,8 @@ export default function ContestPage() {
       {/* Hero Section */}
       <div className="bg-[#2DD4BF]/10 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-black text-[#FF6B35] sm:text-5xl">
-            <span className="text-5xl sm:text-6xl">Denver</span>
-            <div className="text-2xl sm:text-3xl text-[#2DD4BF]">Cute Dog Contest</div>
+          <h1 className="text-4xl font-black text-[#FF6B35] sm:text-5xl mb-4">
+            Venice Beach Cute Dog Contest
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Show off your pup and win a professional photoshoot with Brian!

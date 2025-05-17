@@ -7,9 +7,12 @@ const testimonials = [
   {
     id: 1,
     rating: 5,
-    quote: "The best dog walker in Denver! My dog absolutely loves their walks and comes back happy and tired.",
-    author: "Sarah M.",
-    location: "Denver Tech Center"
+    quote: "The best dog walker in Venice Beach! My dog absolutely loves their walks and comes back happy and tired.",
+    author: {
+      name: "Sarah Johnson",
+      role: "Dog Parent",
+      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
   },
   {
     id: 2,
@@ -24,9 +27,12 @@ const testimonials = [
   {
     id: 3,
     rating: 5,
-    quote: "They know all the best spots in Denver for dog walking. My pup gets so excited when they arrive!",
-    author: "Michael R.",
-    location: "Cherry Creek"
+    quote: "They know all the best spots in Venice Beach for dog walking. My pup gets so excited when they arrive!",
+    author: {
+      name: "Emily Rodriguez",
+      role: "Dog Parent",
+      imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
   },
 ];
 

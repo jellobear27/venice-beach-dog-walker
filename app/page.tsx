@@ -1,14 +1,14 @@
 import Hero from "@/components/pages/Hero";
+import HowItWorks from "@/components/pages/HowItWorks";
 import About from "@/components/pages/About";
-import Booking from "@/components/pages/Booking";
 import Services from "@/components/pages/Services";
+import Booking from "@/components/pages/Booking";
 import Testimonials from "@/components/pages/Testimonials";
+import Footer from "@/components/pages/Footer";
 import ConnectSupabaseSteps from "@/components/tutorial/connect-supabase-steps";
 import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
-import Footer from "@/components/pages/Footer";
 
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
-
 
 export default async function Home() {
   return (
@@ -18,12 +18,12 @@ export default async function Home() {
         {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
       </main> */}
       <Hero />
+      <HowItWorks />
       <About />
       <Services />
       <Booking />
       <Testimonials />
       <Footer />
-
     </>
   );
 }

@@ -8,7 +8,6 @@ import { SplitText } from 'gsap/SplitText';
 export default function Hero() {
   const headingRef = useRef(null);
   const taglineRef = useRef(null);
-  const descriptionRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -29,7 +28,6 @@ export default function Hero() {
     // Split and animate the heading
     const heading = new SplitText(headingRef.current, { type: "chars,words" });
     const tagline = new SplitText(taglineRef.current, { type: "chars,words" });
-    const description = new SplitText(descriptionRef.current, { type: "chars,words" });
 
     // Create the animation timeline
     const tl = gsap.timeline({
@@ -54,29 +52,19 @@ export default function Hero() {
       ease: "power2.out"
     }, "-=0.4");
 
-    // Animate description
-    tl.from(description.chars, {
-      opacity: 0,
-      y: 20,
-      duration: 0.5,
-      stagger: 0.02,
-      ease: "power2.out"
-    }, "-=0.2");
-
     // Cleanup
     return () => {
       heading.revert();
       tagline.revert();
-      description.revert();
     };
   }, [isLoaded]);
 
   return (
     <section className="relative w-full">
-      {/* Background Image Container - Extended height */}
-      <div className="absolute inset-0 z-0 h-[200vh]">
+      {/* Background Image Container */}
+      <div className="absolute inset-0 z-0 h-screen">
         <Image
-          src="/denverdogs.jpeg"
+          src="/newdenverdogs.jpeg"
           alt="Dog Walker in Denver"
           fill
           priority
@@ -88,20 +76,32 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-sunset-orange/20 via-sunset-pink/15 to-sunset-purple/20 mix-blend-overlay" />
       </div>
 
-      {/* Content - Fixed to viewport */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className={`text-5xl tracking-tight font-black text-white sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-[0_8px_8px_rgba(0,0,0,0.6)] transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <span ref={headingRef} className="block">Happy Denver Dogs</span>
-            <span ref={taglineRef} className="block text-[#FF6B35] font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]">With Janell</span>
+      {/* Scrolling Banner */}
+      <div className="relative z-10 w-full bg-black/70 backdrop-blur-sm py-4 overflow-hidden">
+        <div className="animate-scroll whitespace-nowrap">
+          <span className="inline-block text-white text-xl font-medium px-4">
+            Personalized care with Janell — a Denver local who treats every dog like family. From park trips and mountain hikes to cuddles and adventures, Janell ensures your pup's happiness every step of the way.
+          </span>
+          <span className="inline-block text-white text-xl font-medium px-4">
+            Personalized care with Janell — a Denver local who treats every dog like family. From park trips and mountain hikes to cuddles and adventures, Janell ensures your pup's happiness every step of the way.
+          </span>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen flex flex-col">
+        {/* Heading Section - Top Center */}
+        <div className="pt-8 flex justify-center">
+          <h1 className={`text-4xl tracking-tight font-black text-white sm:text-5xl md:text-6xl lg:text-7xl drop-shadow-[0_8px_8px_rgba(0,0,0,0.6)] transition-opacity duration-500 text-center ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <span ref={headingRef} className="inline">Happy Denver Dogs</span>
+            <span ref={taglineRef} className="inline text-[#FF6B35] font-black ml-2 drop-shadow-[0_4px_4px_rgba(0,0,0,0.4)]">with Janell</span>
           </h1>
-          <div className={`mt-6 sm:mt-8 mx-auto max-w-4xl bg-black/10 backdrop-blur-sm rounded-xl p-6 shadow-xl transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <p ref={descriptionRef} className="text-xl text-white font-bold sm:text-2xl md:text-3xl leading-tight">
-              Personalized care with Janell — a Denver local who treats every dog like family. From park trips and mountain hikes to cuddles and adventures, Janell ensures your pup's happiness every step of the way.
-            </p>
-          </div>
-          <div className={`flex justify-center transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="rounded-md shadow">
+        </div>
+
+        {/* Button Section - Bottom */}
+        <div className={`mt-auto pb-16 -mb-12 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="flex justify-center">
+            <div className="rounded-md shadow relative z-20 bg-white/10 backdrop-blur-sm px-4 py-2">
               <a
                 href="#booking"
                 className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-md text-white bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] hover:from-[#2DD4BF] hover:to-[#0EA5E9] transition-all duration-300 md:py-4 md:text-lg md:px-10 shadow-lg"
@@ -112,6 +112,24 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+          display: inline-block;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 } 

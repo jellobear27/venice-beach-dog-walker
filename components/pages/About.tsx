@@ -54,9 +54,9 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative bg-white mt-[100vh]">
+    <section id="about" className="relative bg-white">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sunset-orange/5 via-sunset-pink/5 to-sunset-purple/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-orange-400/5 to-blue-900/5" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -84,14 +84,16 @@ export default function About() {
             </div>
           </div>
           <div className="mt-16 lg:mt-0">
-            <div className="relative w-full h-[600px] rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300">
-              <Image
-                src="/pugpic.jpeg"
-                alt="Denver Dog Walker"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative w-full h-[600px] rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-transform duration-300 p-1 bg-gradient-to-r from-[#2DD4BF] to-[#0EA5E9]">
+              <div className="relative w-full h-full rounded-xl overflow-hidden">
+                <Image
+                  src="/pugpic.jpeg"
+                  alt="Denver Dog Walker"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </div>
         </div>
